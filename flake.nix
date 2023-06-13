@@ -55,7 +55,7 @@
           name = "antoniocastanheira@bridge";
           username = "antoniocastanheira";
           homeDirectory = "/Users/antoniocastanheira";
-          system = "aarch64-darwin";
+          system = "x86_64-darwin";
           features = [ "cli" "ide-full" "aws" "k8s" "iac" ];
         };
       };
