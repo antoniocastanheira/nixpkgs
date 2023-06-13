@@ -1,4 +1,4 @@
-{ pkgs, name, lib, ... }:
+{ pkgs, name, lib, homeDirectory, ... }:
 
 {
   programs.zsh = {
@@ -53,7 +53,7 @@
 
   home.shellAliases = {
     cat = "bat";
-    reload = "home-manager switch --flake ~/.config/nixpkgs#${name} && source ~/.zshrc";
+    reload = "home-manager switch --flake '${homeDirectory}/.config/nixpkgs#${name}' && source ~/.zshrc";
   };
 }
 

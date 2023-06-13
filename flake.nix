@@ -51,8 +51,8 @@
       # Home configurations
       # Accessible via 'home-manager'
       homeConfigurations = {
-        "antoniocastanheira@bridge" = mkHome {
-          name = "antoniocastanheira@bridge";
+        "bridge" = mkHome {
+          name = "bridge";
           username = "antoniocastanheira";
           homeDirectory = "/Users/antoniocastanheira";
           system = "x86_64-darwin";
