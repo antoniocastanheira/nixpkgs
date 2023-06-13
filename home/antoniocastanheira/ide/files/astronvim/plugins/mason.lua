@@ -5,7 +5,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     -- overrides `require("mason-lspconfig").setup(...)`
     opts = {
-      ensure_installed = { "lua_ls", "gopls", "terraformls", "tsserver", "volar", "eslint", "yamlls" },
+      ensure_installed = { "lua_ls", "terraformls", "tsserver", "volar", "eslint", "yamlls" },
     },
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
@@ -13,14 +13,14 @@ return {
     "jay-babu/mason-null-ls.nvim",
     -- overrides `require("mason-null-ls").setup(...)`
     opts = {
-      ensure_installed = { "gomodifytags", "gofumpt", "iferr", "impl", "goimports" },
+      ensure_installed = { "iferr", "impl", "goimports" },
     },
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
     -- overrides `require("mason-nvim-dap").setup(...)`
     opts = {
-      ensure_installed = { "delve" },
+      ensure_installed = {},
     },
   },
 }
