@@ -31,7 +31,7 @@
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, nix-npm-buildpackage, flake-utils, devenv, ... }@inputs:
     let
       lib = import ./lib { inherit inputs; };
-      inherit (lib) mkSystem mkHome;
+      inherit (lib) mkHome;
 
       # Bring some functions into scope (from builtins and other flakes)
       inherit (builtins) attrValues;
@@ -46,85 +46,18 @@
           inherit nixpkgs devenv;
         }; # Our own overlay
         nix-npm-buildpackage = nix-npm-buildpackage.overlays.default;
-        # nur = nur.overlay
-      };
-
-      # System configurations
-      # Accessible via 'nixos-rebuild'
-      nixosConfigurations = {
-        nixos = mkSystem {
-          name = "nixos";
-          features = [ "mbr" "pantheon" "ssh" "tailscale" "k3s" "nfs" ];
-        };
-        roxie = mkSystem {
-          name = "roxie";
-          features = [ "roxie" "bluetooth" "ssh" "tailscale" "k3s" "nfs" ];
-        };
-        nixos-vb = mkSystem {
-          name = "nixos-vb";
-          features = [ "mbr-vb" "pantheon" "ssh" "tailscale" ];
-        };
       };
 
       # Home configurations
       # Accessible via 'home-manager'
       homeConfigurations = {
-        "adam@bridge" = mkHome {
-          name = "adam@bridge";
-          username = "adam";
-          homeDirectory = "/Users/adam";
-          system = "aarch64-darwin";
-          features = [ "cli" "ide-full" "aws" "k8s" "iac" "adam@bridge" "taskwarrior" ];
-        };
-
-        "adam@home" = mkHome {
-          name = "adam@home";
-          username = "adam";
-          homeDirectory = "/Users/adam";
+        "antoniocastanheira@bridge" = mkHome {
+          name = "antoniocastanheira@bridge";
+          username = "antoniocastanheira";
+          homeDirectory = "/Users/antoniocastanheira";
           system = "aarch64-darwin";
           features = [ "cli" "ide-full" "aws" "k8s" "iac" ];
         };
-
-        "gitpod" = mkHome {
-          name = "gitpod";
-          username = "gitpod";
-          homeDirectory = "/home/gitpod";
-          system = "x86_64-linux";
-          features = [ "cli" "k8s" ];
-        };
-
-        "gitpod-full" = mkHome {
-          name = "gitpod-full";
-          username = "gitpod";
-          homeDirectory = "/home/gitpod";
-          system = "x86_64-linux";
-          features = [ "cli" "ide-full" "k8s" ];
-        };
-
-        "adam@nixos" = mkHome {
-          name = "adam@nixos";
-          username = "adam";
-          homeDirectory = "/home/adam";
-          system = "x86_64-linux";
-          features = [ "cli" "ide-full" "vscode" "k8s" "pantheon" ];
-        };
-
-        "adam@roxie" = mkHome {
-          name = "adam@roxie";
-          username = "adam";
-          homeDirectory = "/home/adam";
-          system = "x86_64-linux";
-          features = [ "cli" "ide-full" "k8s" ];
-        };
-
-        "adam@nixos-vb" = mkHome {
-          name = "adam@nixos-vb";
-          username = "adam";
-          homeDirectory = "/home/adam";
-          system = "x86_64-linux";
-          features = [ "cli" "ide-full" "k8s" "pantheon" ];
-        };
-
       };
 
       # Packages

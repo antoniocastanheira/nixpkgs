@@ -3,8 +3,8 @@
 {
   programs.git = {
     enable = true;
-    userName = "Adam Engebretson";
-    userEmail = "adam@enge.me";
+    userName = "Antonio Castanheira";
+    userEmail = "antonio.castanheira@getbridge.com";
     ignores = [
       ".direnv"
     ];

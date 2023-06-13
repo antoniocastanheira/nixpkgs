@@ -14,6 +14,6 @@ in
 
   home = {
     inherit username homeDirectory;
-    stateVersion = "22.05";
+    stateVersion = "23.05";
   };
 }
